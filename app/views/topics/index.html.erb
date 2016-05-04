@@ -4,4 +4,5 @@
 <%- @topics.each do |topic| %>
   <%= link_to "#{topic.name}", '#' %>
   <%= link_to 'Edit Topic', edit_topic_path(topic) %>
+  <%= link_to 'Delete Topic', topic_path(topic), method: :delete %>
 <% end %>
