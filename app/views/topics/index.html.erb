@@ -2,7 +2,7 @@
 <%= link_to 'Create a Topic', new_topic_path %>
 <h1>Topics</h1>
 <%- @topics.each do |topic| %>
-  <%= link_to "#{topic.name}", '#' %>
+  <%= link_to "#{topic.name}", topic_path(topic)  %>
   <%= link_to 'Edit Topic', edit_topic_path(topic) %>
   <%= link_to 'Delete Topic', topic_path(topic), method: :delete %>
 <% end %>
