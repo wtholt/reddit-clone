@@ -10,10 +10,10 @@ feature 'User should create a thread' do
 
     visit root_path
 
-    click_link 'Create a Thread'
+    click_link 'Create a Topic'
 
-    fill_in 'thread_name', with: 'ooga booga'
-    click_button 'Create Thread'
+    fill_in 'topic_name', with: 'ooga booga'
+    click_button 'Create Topic'
 
     expect(page).to have_css 'a', text: 'ooga booga'
   end
