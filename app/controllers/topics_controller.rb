@@ -9,6 +9,10 @@ class TopicsController < ApplicationController
     @topic = Topic.new
   end
 
+  def edit
+    @topic = Topic.find(params[:id])
+  end
+
   def create
     @topic = current_user.topics.build(topic_params)
     @topic.save
@@ -16,6 +20,16 @@ class TopicsController < ApplicationController
       redirect_to root_path
     else
       render :new
+    end
+  end
+
+  def update
+    @topic = Topic.find(params[:id])
+    @topic.update_attributes(topic_params)
+    if @topic.save
+      redirect_to root_path
+    else
+      render :edit
     end
   end
 
