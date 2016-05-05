@@ -19,9 +19,9 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = current_user.topics.build(topic_params)
-    @topic.save
+    @topic = Topic.new(topic_params)
     if @topic.save
+      @topic.users << current_user
       redirect_to root_path
     else
       render :new

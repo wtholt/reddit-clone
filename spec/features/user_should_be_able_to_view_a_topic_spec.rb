@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'User should view Topic' do
   scenario 'successfully' do
     user = create(:user)
-    topic = create(:topic, user: user)
+    topic = create(:topic, user_id: user)
     visit new_user_session_path
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password

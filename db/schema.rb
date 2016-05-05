@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505004315) do
+ActiveRecord::Schema.define(version: 20160505222840) do
+
+  create_table "conversations", force: :cascade do |t|
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "topic_id",   limit: 4
+    t.integer  "user_id",    limit: 4
+  end
 
   create_table "posts", force: :cascade do |t|
     t.text     "content",    limit: 65535
@@ -33,6 +40,14 @@ ActiveRecord::Schema.define(version: 20160505004315) do
   end
 
   add_index "topics", ["user_id"], name: "index_topics_on_user_id", using: :btree
+
+  create_table "topics_users", force: :cascade do |t|
+    t.integer "topic_id", limit: 4
+    t.integer "user_id",  limit: 4
+  end
+
+  add_index "topics_users", ["topic_id"], name: "index_topics_users_on_topic_id", using: :btree
+  add_index "topics_users", ["user_id"], name: "index_topics_users_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false

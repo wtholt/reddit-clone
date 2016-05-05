@@ -3,8 +3,8 @@ require 'rails_helper'
 feature 'User should delete post' do
   scenario 'successfully' do
     user = create(:user)
-    topic = create(:topic, user: user)
-    post = create(:post, user: user, topic: topic)
+    topic = create(:topic, user_id: user)
+    post = create(:post, user_id: user, topic: topic)
     visit new_user_session_path
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password

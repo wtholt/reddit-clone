@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'User should edit topic' do
   scenario 'successfully' do
     user = create(:user)
-    topic = create(:topic, user: user)
+    topic = create(:topic, user_id: user)
     post = create(:post,
                   title: 'content',
                   content: 'content',

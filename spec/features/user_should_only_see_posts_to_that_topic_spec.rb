@@ -3,8 +3,8 @@ require 'rails_helper'
 feature 'User should only see posts to that topic' do
   scenario 'successfully' do
     user = create(:user)
-    topic = create(:topic, user: user, name: 'topic1')
-    other_topic = create(:topic, user: user, name: 'topic2')
+    topic = create(:topic, user_id: user, name: 'topic1')
+    other_topic = create(:topic, user_id: user, name: 'topic2')
     post = create(:post, user: user, topic: topic, title: 'ooga booga')
     post_two = create(:post, user: user, topic: other_topic, title: 'bob')
     visit new_user_session_path

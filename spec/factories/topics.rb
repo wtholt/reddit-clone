@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :topic do
     name "MyString"
-    user nil
+    user_id nil
   end
 end
