@@ -16,6 +16,7 @@ class PostsController < ApplicationController
     @post.topic_id = params[:topic_id]
     if @post.save
       redirect_to topic_path(params[:topic_id])
+      WelcomeMailer.welcome_email(current_user).deliver_later
     else
       render :new
     end
