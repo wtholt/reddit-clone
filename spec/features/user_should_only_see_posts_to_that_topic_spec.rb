@@ -5,8 +5,8 @@ feature 'User should only see posts to that topic' do
     user = create(:user)
     topic = create(:topic, user: user, name: 'topic1')
     other_topic = create(:topic, user: user, name: 'topic2')
-    post = create(:post, user: user, topic: topic, content: 'ooga booga')
-    post_two = create(:post, user: user, topic: other_topic, content: 'bob')
+    post = create(:post, user: user, topic: topic, title: 'ooga booga')
+    post_two = create(:post, user: user, topic: other_topic, title: 'bob')
     visit new_user_session_path
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password
@@ -16,7 +16,7 @@ feature 'User should only see posts to that topic' do
 
     click_link "#{topic.name}"
 
-    expect(page).to have_content post.content
-    expect(page).not_to have_content post_two.content
+    expect(page).to have_content post.title
+    expect(page).not_to have_content post_two.title
   end
 end

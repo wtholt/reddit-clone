@@ -1,5 +1,7 @@
 <h1>Posts</h1>
 <%= link_to 'Create Post', new_topic_post_path(@topic) %>
 <% @posts.each do |post| %>
-  <%= link_to "#{post.content}", topic_post_path(@topic, post) %>
+  <%= link_to "#{post.title}", topic_post_path(@topic, post) %>
+  <%= link_to 'Edit Post', edit_topic_post_path(@topic, post) %>
+  <%= link_to 'Delete Post', topic_post_path(@topic, post), method: :delete %>
 <% end %>
