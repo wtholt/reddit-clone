@@ -1,0 +1,5 @@
+<%= form_for @post, url: topic_posts_path do |f| %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>
