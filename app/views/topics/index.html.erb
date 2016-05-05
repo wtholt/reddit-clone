@@ -1,8 +1,21 @@
-<h1>Reddit Clone</h1>
-<%= link_to 'Create a Topic', new_topic_path %>
-<h1>Topics</h1>
+<h1 class="text-center">Reddit Clone</h1>
+<div class = "text-center">
+  <%= link_to 'Create a Topic', new_topic_path, class: 'btn btn-success' %>
+</div>
+<h1 class='text-center'>Topics</h1>
 <%- @topics.each do |topic| %>
-  <%= link_to "#{topic.name}", topic_path(topic)  %>
-  <%= link_to 'Edit Topic', edit_topic_path(topic) %>
-  <%= link_to 'Delete Topic', topic_path(topic), method: :delete %>
+  <div class = 'col-md-3'>
+    <ul class="list-unstyled">
+      <li>
+        <span>
+          <h4>Topic</h4>
+          <%= link_to "#{topic.name}", topic_path(topic), class: 'btn btn-info'  %>
+        </span>
+        <br>
+        <%= link_to 'Edit Topic', edit_topic_path(topic), class: 'btn btn-primary' %>
+        <%= link_to 'Delete Topic', topic_path(topic), method: :delete,
+          class: 'btn btn-danger' %>
+      </li>
+    </ul>
+  </div>
 <% end %>
