@@ -19,8 +19,5 @@
   "dependencies": {
     "bootstrap": "^3.3.6"
   }
-  "scripts: {
-    "postinstall": "./node_modules/bower/bin/bower install"
-  }
 }
 
