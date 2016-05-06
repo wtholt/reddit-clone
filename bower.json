@@ -1,0 +1,26 @@
+{
+  "name": "reddit_clone",
+  "homepage": "https://github.com/wtholt/reddit-clone",
+  "authors": [
+    "William Holt <holtw@musc.edu>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+  "scripts: {
+    "postinstall": "./node_modules/bower/bin/bower install"
+  }
+}
+
